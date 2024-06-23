@@ -1,7 +1,7 @@
 # fullstack-drinkShop-app
 
 This repository contains a full-stack application with separate folders for the frontend (Angular) and backend (Java).
-Τhe user must log in to MySQL local instance as user with user creation rights.
+Τhe user must log in to MySQL local instance as a user with user creation rights.
 
 ## Database Setup
 
