@@ -1,0 +1,52 @@
+<div class="main-content">
+    <div class="section-content section-content-p30">
+        <div class="container-fluid">
+
+            <div *ngIf="cartItems.length > 0">
+                <table class="table table-bordered">
+                    <tr>
+                        <th width="20%">Drink Image</th>
+                        <th width="50%">Drink Detail</th>
+                        <th width="30%"></th>
+                    </tr>
+
+                    <tr *ngFor="let tempCartItem of cartItems">
+                        <td>
+                            <img src="{{ tempCartItem.imageUrl }}" class="img-fluid " width="150px"/>
+                        </td>
+                        <td>
+                            <p>{{ tempCartItem.name }}</p>
+                            <p>{{ tempCartItem.price | currency: 'EUR' }}</p>
+                        </td>
+                        <td>
+                            <div class="items">
+                                <label>Quantity:</label> {{ tempCartItem.quantity }}
+                            </div>
+
+                            <p><button (click)="remove(tempCartItem)" class="btn btn-warning btn-sm mt-2">Remove</button></p>
+
+                            <p class="mt-2">Subtotal: {{ tempCartItem.quantity * tempCartItem.price | currency: 'EUR' }}</p>
+                        </td>
+
+                    </tr>
+
+                    <tr>
+                        <td colspan="2"></td>
+                        <td style="font-weight: bold;">
+                            <p>Total Quantity: {{ totalQuantity }}</p>
+                            <p>Total Price: {{ totalPrice | currency: 'EUR' }}</p>
+                            <p><a routerLink="/checkout" class="btn btn-warning">Checkout</a></p>
+                        </td>
+                    </tr>
+
+                </table>
+
+            </div>
+            <!-- empty cart -->
+            <div *ngIf="cartItems.length == 0" class="alert alert-warning col-md-12" role="alert">
+                The shopping cart is empty.
+            </div>
+        </div>
+
+    </div>
+</div>    

@@ -1,0 +1,18 @@
+<div class="detail-section">
+    <div class="container-fluid" *ngIf="drink">
+
+        <img src="{{ drink.imageUrl }}" class="detail-img">
+
+        <h3>{{ drink.name }}</h3>
+        <div class="price">{{ drink.price | currency:'EUR' }}</div>
+        <button (click)="addToCart()" class="btn btn-warning btn-sm">Add to cart</button>
+
+        <hr>
+        <h4>Description</h4>
+        <p>{{ drink.description }}</p>
+
+        <!--Redirect to drink list-->
+        <a routerLink="/drinks" class="mt-5 text-dark">Back to Drink List</a>
+
+    </div>
+</div>

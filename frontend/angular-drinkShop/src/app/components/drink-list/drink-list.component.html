@@ -1,0 +1,43 @@
+<div class="main-content">
+    <div class="section-content section-content-p30">
+        <h4>Drink: {{ currentCategoryName }}</h4>
+        <hr>
+        
+        <div class="container-fluid">
+            <div class="row">
+
+                <!-- loop over the collection of products -->
+                <div *ngFor="let tempDrink of drinks" class="col-md-3">
+                    
+                    <div class="drink-box">
+
+                        <div>
+                            <!--Add a link on the drink image to show us the details-->
+                            <a routerLink="/drinks/{{ tempDrink.id }}">
+                                <img src="{{ tempDrink.imageUrl }}" class="img-fluid">
+                            </a>
+                        </div>
+
+                        <div>
+                            <!--Add a link on the drink name to show us the details-->
+                            <a routerLink="/drinks/{{ tempDrink.id }}" class="text-dark custom-link">
+                                <h6>{{ tempDrink.name }}</h6>
+                            </a>
+                        </div>
+
+                        <div class="price">{{ tempDrink.price | currency:'EUR' }}</div>
+                        <button (click)="addToCart(tempDrink)" class="btn btn-warning btn-sm mb-1">Add to cart</button>
+                    </div>
+
+                </div>
+
+                <!-- No drinks found when user make search-->
+                <div *ngIf="drinks?.length == 0" class="alert alert-warning  col-md-12" role="alert">
+                    No drinks found.
+                </div>
+
+            </div>
+        </div> 
+
+    </div>
+</div>
